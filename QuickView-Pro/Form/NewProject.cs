@@ -1,7 +1,6 @@
 ﻿using CommonTools;
 using LogTool;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 
@@ -66,52 +65,23 @@ namespace QuickView_Pro
 
                 // 创建工程文件
                 var filePath = Path.Combine(projectPath, projectName + ConstantHelper.ProjectSuffixName);
-                var projectInfo = new ProjectInfo
+                var newProjectModel = new NewProjectModel
                 {
-                    Description = rtbProjectDescription.Text.Trim(),
-                    ProjectGuid = guid.ToString()
+                    ProjectGuid = guid.ToString(),
+                    Description = rtbProjectDescription.Text.Trim()  
                 };
-                await JsonHelper.WriteFile(projectInfo, filePath);
+                await JsonHelper.WriteFile(newProjectModel, filePath);
 
                 var configDirPath = Path.Combine(projectPath, "Config");
                 Directory.CreateDirectory(configDirPath);
 
-                //// 创建设备文件
-                //var devicePath = Path.Combine(configDirPath, ConstantHelper.DeviceFileName);
-                //await JSONHelper.WriteFile(new Dictionary<string, DeviceConfig>(), devicePath);
+                var configModel = new InfluxDBConfigModel();
+                configModel.Guid = guid.ToString();
+                configModel.StoragePath = 
+                    Path.Combine($"{Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData)}",
+                    ConstantHelper.SoftwareName);
 
-                //// 创建变量文件
-                //var tagPath = Path.Combine(configDirPath, ConstantHelper.TagFileName);
-                //await JSONHelper.WriteFile(new Dictionary<string, object>(), tagPath);
-
-                //// 创建变量组文件
-                //var tagGroupPath = Path.Combine(configDirPath, ConstantHelper.TagGroupFileName);
-                //await JSONHelper.WriteFile(new List<TagGroup>() {
-                //        new TagGroup() { Id = 0, ParentId = -1, Name = "默认变量组",Children = new List<TagGroup> () } }, tagGroupPath);
-
-                //// 创建引用变量文件
-                //var tagReferencePath = Path.Combine(configDirPath, ConstantHelper.TagReferenceFileName);
-                //await JSONHelper.WriteFile(new Dictionary<string, TagReference>(), tagReferencePath);
-
-                //// 创建历史数据库文件
-                //var historianDBPath = Path.Combine(configDirPath, ConstantHelper.HistorianDBCfgFileName);
-                //var dbConfigurationModel = new InfluxDBConfigModel();
-                //await JSONHelper.WriteFile(dbConfigurationModel, historianDBPath);
-
-                //// 创建IO Server配置文件
-                //var ioServerConfigModel = new IOServerConfigModel();
-                //ioServerConfigModel.Guid = guid.ToString();
-
-                //var infulxDBPath = Path.Combine(configDirPath, dbConfigurationModel.CfgPath);
-                //await JSONHelper.WriteFile(ioServerConfigModel, infulxDBPath);
-
-                //// 创建用户权限信息文件
-                //var userInfoFilePath = Path.Combine(configDirPath, ConstantHelper.UserInfoFileName);
-                //await JSONHelper.WriteFile(new Dictionary<string, UserInfo>(), userInfoFilePath);
-
-                //// 创建调度文件
-                //var scheduleFilePath = Path.Combine(configDirPath, ConstantHelper.ScheduleFileName);
-                //await JSONHelper.WriteFile(new Dictionary<string, object>(), scheduleFilePath);
+                await JsonHelper.WriteFile(configModel, Path.Combine(configDirPath, "InfluxdDBCfg.json"));
 
                 // 返回工程文件路径
                 ProjeceFilePath = filePath;

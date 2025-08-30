@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CommonTools
+﻿namespace CommonTools
 {
     public class ConstantHelper
     {
         public static string SoftwareName = "QuickView-Pro";
+
+        public static string ProjectSuffixName = ".qvp";
     }
 }

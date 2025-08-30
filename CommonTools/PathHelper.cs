@@ -12,9 +12,5 @@ namespace CommonTools
                 ConstantHelper.SoftwareName, "Projects");
         }
 
-        public static string GetHMIRunFilePath(string projectPath)
-        {
-            return Path.Combine(projectPath, "Output", "HMIRUN.exe");
-        }
     }
 }

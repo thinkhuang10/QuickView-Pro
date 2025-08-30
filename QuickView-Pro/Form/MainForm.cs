@@ -1,6 +1,8 @@
-﻿using LogTool;
+﻿using CommonTools;
+using LogTool;
 using System;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace QuickView_Pro
 {
@@ -13,7 +15,12 @@ namespace QuickView_Pro
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            //NLogLogger.Fatal("123");
+            
+        }
+
+        private void OpenProject()
+        { 
+        
         }
 
         #region 工具栏
@@ -21,19 +28,26 @@ namespace QuickView_Pro
         private void ToolStripMenuItem新建工程_Click(object sender, EventArgs e)
         {
             var form = new NewProject();
-            form.ShowDialog();
+            var dialog = form.ShowDialog();
+
+            if (DialogResult.OK != dialog)
+                return;
+
+            OpenProject();
         }
 
         private void ToolStripMenuItem打开工程_Click(object sender, EventArgs e)
         {
             var dialog = new OpenFileDialog
             {
-                //Filter = $"工程文件|*{ConstantHelper.ProjectSuffixName}",
-                //InitialDirectory = PathHelper.GetDefaultProjectPath()
+                Filter = $"工程文件|*{ConstantHelper.ProjectSuffixName}",
+                InitialDirectory = PathHelper.GetDefaultProjectPath()
             };
 
             if (DialogResult.OK != dialog.ShowDialog())
                 return;
+
+            OpenProject();
         }
 
         private void ToolStripMenuItem退出_Click(object sender, EventArgs e)

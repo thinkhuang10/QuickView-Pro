@@ -1,6 +1,6 @@
 ﻿namespace QuickView_Pro
 {
-    internal class ProjectInfo
+    internal class NewProjectModel
     {
         public string ProjectGuid;
 
