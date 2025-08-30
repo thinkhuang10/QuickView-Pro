@@ -13,7 +13,7 @@ namespace QuickView_Pro
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            NLogLogger.Fatal("123");
+            //NLogLogger.Fatal("123");
         }
 
         #region 工具栏
@@ -31,6 +31,7 @@ namespace QuickView_Pro
                 //Filter = $"工程文件|*{ConstantHelper.ProjectSuffixName}",
                 //InitialDirectory = PathHelper.GetDefaultProjectPath()
             };
+
             if (DialogResult.OK != dialog.ShowDialog())
                 return;
         }
@@ -38,6 +39,12 @@ namespace QuickView_Pro
         private void ToolStripMenuItem退出_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void 关于ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new AboutForm();
+            form.ShowDialog();
         }
 
         #endregion
