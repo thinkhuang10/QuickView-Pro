@@ -111,6 +111,10 @@
       <Project>{0cb27aa5-bd0c-46e8-9885-09acc9dce480}</Project>
       <Name>CommonTools</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EasyModbus\EasyModbus_Net40.csproj">
+      <Project>{7657FC4A-AEDF-4F17-B3E9-0D0DFB1CE23B}</Project>
+      <Name>EasyModbus_Net40</Name>
+    </ProjectReference>
     <ProjectReference Include="..\InfluxDBDriver\InfluxDBDriver.csproj">
       <Project>{7211d229-69b5-438b-a8df-1339665ca177}</Project>
       <Name>InfluxDBDriver</Name>

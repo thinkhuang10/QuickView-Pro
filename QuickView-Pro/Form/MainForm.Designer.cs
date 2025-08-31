@@ -116,30 +116,31 @@
             // 启动通讯ToolStripMenuItem
             // 
             this.启动通讯ToolStripMenuItem.Name = "启动通讯ToolStripMenuItem";
-            this.启动通讯ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.启动通讯ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.启动通讯ToolStripMenuItem.Text = "启动通讯";
+            this.启动通讯ToolStripMenuItem.Click += new System.EventHandler(this.启动通讯ToolStripMenuItem_Click);
             // 
             // 停止通讯ToolStripMenuItem
             // 
             this.停止通讯ToolStripMenuItem.Name = "停止通讯ToolStripMenuItem";
-            this.停止通讯ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.停止通讯ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.停止通讯ToolStripMenuItem.Text = "停止通讯";
             // 
             // 时间同步ToolStripMenuItem
             // 
             this.时间同步ToolStripMenuItem.Name = "时间同步ToolStripMenuItem";
-            this.时间同步ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.时间同步ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.时间同步ToolStripMenuItem.Text = "时间同步";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(121, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
             // 
             // 通讯设置ToolStripMenuItem
             // 
             this.通讯设置ToolStripMenuItem.Name = "通讯设置ToolStripMenuItem";
-            this.通讯设置ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.通讯设置ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.通讯设置ToolStripMenuItem.Text = "通讯设置";
             // 
             // 数据库ToolStripMenuItem

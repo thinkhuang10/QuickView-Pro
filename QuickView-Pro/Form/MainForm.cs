@@ -1,4 +1,5 @@
 ﻿using CommonTools;
+using EasyModbus;
 using InfluxDBDriver;
 using System;
 using System.Collections.Generic;
@@ -83,6 +84,18 @@ namespace QuickView_Pro
                     };
             influxDBClient.WriteData("temperature", tempFields, tempTags);
             Console.WriteLine("温度数据写入成功");
+        }
+
+        private void 启动通讯ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //TODO: 测试完成ModusTCP写值
+            //ModbusClient modbusClient = new ModbusClient();
+
+            //modbusClient.IPAddress = "127.0.0.1";
+            //modbusClient.Port = 502;
+            //modbusClient.Connect();
+
+            //modbusClient.WriteSingleRegister(0, 36);
         }
     }
 }

@@ -130,5 +130,11 @@
   <ItemGroup>
     <Content Include="Resources\small.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EasyModbus\EasyModbus_Net40.csproj">
+      <Project>{7657fc4a-aedf-4f17-b3e9-0d0dfb1ce23b}</Project>
+      <Name>EasyModbus_Net40</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
