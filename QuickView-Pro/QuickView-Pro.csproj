@@ -111,6 +111,10 @@
       <Project>{0cb27aa5-bd0c-46e8-9885-09acc9dce480}</Project>
       <Name>CommonTools</Name>
     </ProjectReference>
+    <ProjectReference Include="..\InfluxDBDriver\InfluxDBDriver.csproj">
+      <Project>{7211d229-69b5-438b-a8df-1339665ca177}</Project>
+      <Name>InfluxDBDriver</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LogTool\LogTool.csproj">
       <Project>{a5a26f24-1231-4343-9aed-6e4e34cbd17a}</Project>
       <Name>LogTool</Name>

@@ -1,8 +1,9 @@
 ﻿using CommonTools;
-using LogTool;
+using InfluxDBDriver;
 using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace QuickView_Pro
 {
@@ -25,7 +26,7 @@ namespace QuickView_Pro
 
         #region 工具栏
 
-        private void ToolStripMenuItem新建工程_Click(object sender, EventArgs e)
+        private void 新建工程ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var form = new NewProject();
             var dialog = form.ShowDialog();
@@ -36,7 +37,7 @@ namespace QuickView_Pro
             OpenProject();
         }
 
-        private void ToolStripMenuItem打开工程_Click(object sender, EventArgs e)
+        private void 打开工程ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var dialog = new OpenFileDialog
             {
@@ -50,7 +51,7 @@ namespace QuickView_Pro
             OpenProject();
         }
 
-        private void ToolStripMenuItem退出_Click(object sender, EventArgs e)
+        private void 退出ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
@@ -63,5 +64,25 @@ namespace QuickView_Pro
 
         #endregion
 
+        private async void 启动记录ToolStripMenuItem_ClickAsync(object sender, EventArgs e)
+        {
+            var influxDBClient = new InfluxDBClientHelper();
+
+            var configPath = "C:\\Users\\hp\\Desktop\\1\\InfluxdDBCfg.json";
+            await influxDBClient.InitAsync(configPath);
+
+            // 1. 写入单条温度数据
+            var tempFields = new Dictionary<string, object>
+                    {
+                        { "value", 33 } // 温度值
+                    };
+            var tempTags = new Dictionary<string, string>
+                    {
+                        { "sensor_id", "sensor-001" },
+                        { "location", "车间A" }
+                    };
+            influxDBClient.WriteData("temperature", tempFields, tempTags);
+            Console.WriteLine("温度数据写入成功");
+        }
     }
 }
